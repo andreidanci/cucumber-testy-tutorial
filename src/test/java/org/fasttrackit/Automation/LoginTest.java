@@ -40,10 +40,7 @@ public class LoginTest extends TestBase {
 
     }
 
-    private void openBrowser() {
-        System.out.println("ready");
-        driver.get("https://rawgit.com/sdl/Testy/master/src/test/functional/app-demo/login.html");
-    }
+
 
     @Test
     public void invalidPasswordTest() {
@@ -72,28 +69,7 @@ public class LoginTest extends TestBase {
 
     }
 
-    @Test
-    public void changePasswordWithInvalidCurrentPassword() {
 
-        openBrowser();
-        login("eu@fast.com", "eu.pass");
-
-        WebElement preferenceButton = driver.findElement(By.xpath("//button[@data-target='#preferences-win']"));
-        preferenceButton.click();
-
-        WebElement currentPasswordField = driver.findElement(By.name("password"));
-        WebElement newPasswordField = driver.findElement(By.name("newPassword"));
-        WebElement repeatPasswordField = driver.findElement(By.name("newPasswordRepeat"));
-
-        Utils.sleep(2000);
-
-        repeatPasswordField.sendKeys("new.pass");
-
-        currentPasswordField.sendKeys("wrong.pass");
-        newPasswordField.sendKeys("new.pass");
-
-
-    }
 
 
 }
