@@ -2,19 +2,16 @@ package org.fasttrackit.automation;
 
 
 import com.sdl.selenium.web.WebLocator;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
+public class LoginView {
 
-    @FindBy(id = "email")
-    private WebElement emailField;
 
-    @FindBy (name = "password")
-    private WebElement passField;
+    private WebLocator emailField = new WebLocator().setId("email");
 
-    @FindBy(className = "login-btn")
-    private WebElement loginBtn;
+    private WebLocator passField = new WebLocator().setName("password");
+
+    private WebLocator loginBtn = new WebLocator().setClasses("login=btn");
 
 
     public void login(String email , String pass) {

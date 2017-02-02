@@ -3,6 +3,7 @@ package org.fasttrackit.Automation;
 
 import com.sdl.selenium.web.utils.Utils;
 import org.fasttrackit.automation.LoginPage;
+import org.fasttrackit.automation.LoginView;
 import org.fasttrackit.util.TestBase;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,11 +15,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginTest extends TestBase {
 
-    private LoginPage loginPage;
+  //  private LoginPage page;
+    private LoginView page = new LoginView();
 
     public LoginTest() {
 
-        loginPage = PageFactory.initElements(driver,LoginPage.class);
+      //  page = PageFactory.initElements(driver,LoginPage.class);
 
     }
 
@@ -47,7 +49,7 @@ public class LoginTest extends TestBase {
 
         openBrowser();
 
-        loginPage.login("eu@fast.com", "eu.pass123");
+        page.login("eu@fast.com", "eu.pass123");
 
         WebElement errorElement = driver.findElement(By.className("error-msg"));
         System.out.println(errorElement.getText());
@@ -56,7 +58,7 @@ public class LoginTest extends TestBase {
 
     }
 
-    public void login(String user, String pass) {
+    private void login(String user, String pass) {
 
         WebElement emailField = driver.findElement(By.id("email"));
         WebElement passField = driver.findElement(By.name("password"));
