@@ -15,8 +15,11 @@ public class ChangePasswordPage {
     @FindBy(name = "newPasswordRepeat")
     private WebElement repeatPasswordField;
 
-    //to do save button
+    @FindBy(xpath = "//*[@id='preferences-win']//button[normalize-space(text())='Save']")
+    private WebElement saveButton;
 
+    @FindBy(className = "status-msg")
+    private WebElement statusMsg;
 
     public void setCurrentPasswordField(){
 
@@ -29,7 +32,20 @@ public class ChangePasswordPage {
         currentPasswordField.sendKeys(currentPassword);
         newPasswordField.sendKeys(newPassword);
         repeatPasswordField.sendKeys(repeatPassword);
+        saveButton.click();
+
+    }
+
+
+
+    public String getStatusMsg(){
+
+        String  msg = statusMsg.getText();
+        System.out.println(msg);
+        return msg;
+
 
 
     }
+
 }
