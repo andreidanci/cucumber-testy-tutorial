@@ -1,17 +1,13 @@
 package org.fasttrackit.Automation;
 
 
-import com.sdl.selenium.web.utils.Utils;
-import org.fasttrackit.automation.LoginPage;
 import org.fasttrackit.automation.LoginView;
 import org.fasttrackit.util.TestBase;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 public class LoginTest extends TestBase {
 
@@ -27,9 +23,9 @@ public class LoginTest extends TestBase {
     @Test
     public void validLoginTest() {
 
-        openBrowser();
+        openLoginPage();
 
-        login("eu@fast.com", "eu.pass");
+        page.login("eu@fast.com", "eu.pass");
 
         try {
 
@@ -47,7 +43,7 @@ public class LoginTest extends TestBase {
     @Test
     public void invalidPasswordTest() {
 
-        openBrowser();
+        openLoginPage();
 
         page.login("eu@fast.com", "eu.pass123");
 
@@ -58,18 +54,7 @@ public class LoginTest extends TestBase {
 
     }
 
-    private void login(String user, String pass) {
 
-        WebElement emailField = driver.findElement(By.id("email"));
-        WebElement passField = driver.findElement(By.name("password"));
-        WebElement loginBtn = driver.findElement(By.className("login-btn"));
-
-        emailField.sendKeys(user);
-        passField.sendKeys(pass);
-        loginBtn.click();
-
-
-    }
 
 
 
