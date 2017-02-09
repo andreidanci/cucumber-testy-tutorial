@@ -42,6 +42,17 @@ public class ElementsTest extends TestBase {
         assertThat("Stop the process is not selected!", page.stopProcessCheckbox.isSelected(), is(true));
         assertThat("Label with Enter is not selected!", page.labelWithEnterCheckbox.isSelected(), is(true));
 
+    }
+
+    @Test
+    public void dropDownTest(){
+
+        openLoginPage();
+        loginView.login("eu@fast.com", "eu.pass");
+
+        page.autoOption.click();
+        page.manualOption.click();
+
 
     }
 
